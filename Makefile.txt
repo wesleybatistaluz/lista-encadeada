@@ -1,0 +1,14 @@
+CC=gcc
+CFLAGS=-I.   -lm -g
+DEPS = listasentinela.h tipoitem.h
+OBJ =  main.o listasentinela.o tipoitem.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+progLista: $(OBJ) 
+	$(CC) -o $@ $^ $(CFLAGS) 
+  
+
+clean:
+	rm -f *.o
